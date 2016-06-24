@@ -1,35 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="16dp"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
     tools:context="com.culturacampeche.petagram.MainActivity">
 
-    <TextView
-        android:id="@+id/tvTitulo"
-        android:text="@string/texto_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnMiBoton"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitulo"
-        android:text="@string/texto_boton_click"
-        android:theme="@style/MiBotonRaised" />
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/estrella_blanca"
-        android:layout_below="@+id/btnMiBoton"
-        android:id="@+id/fabMiFAB"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sfiMiIndicadorRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lista_height">
 
-        />
+            <ListView
+                android:id="@+id/lstMiLista"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lista_height"></ListView>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:text="@string/texto_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sfiMiIndicadorRefresh" />
+
+        <Button
+            android:id="@+id/btnMiBoton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitulo"
+            android:text="@string/texto_boton_click"
+            android:theme="@style/MiBotonRaised" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella_blanca"
+            android:layout_below="@+id/btnMiBoton"
+            android:id="@+id/fabMiFAB"
+
+            />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/card_medida"
+            android:layout_height="@dimen/card_medida"
+            android:layout_below="@+id/fabMiFAB"
+            card_view:cardCornerRadius="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/material_lollipop"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/tvTituloTarjeta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_tarjeta"
+                    android:layout_below="@+id/imgImagen" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
